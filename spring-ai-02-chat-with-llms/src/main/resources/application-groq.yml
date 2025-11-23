@@ -1,0 +1,10 @@
+## Groq ##
+spring:
+  ai:
+    openai:
+      base-url: https://api.groq.com
+      chat:
+        completions-path: /openai/v1/chat/completions
+        options:
+          model: llama-3.3-70b-versatile
+      api-key: ${GROQ_API_KEY}

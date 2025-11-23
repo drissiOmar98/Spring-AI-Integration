@@ -1,0 +1,8 @@
+spring:
+  ai:
+    openai:
+      base-url: http://localhost:12434/engines/
+      api-key: "_"
+      chat:
+        options:
+          model: ai/smollm2

@@ -1,0 +1,9 @@
+## DeepSeek ##
+spring:
+  ai:
+    openai:
+      base-url: https://api.deepseek.com
+      api-key: ${DEEPSEEK_API_KEY}
+      chat:
+        options:
+          model: deepseek-reasoner
