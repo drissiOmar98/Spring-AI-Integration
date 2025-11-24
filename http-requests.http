@@ -1,6 +1,21 @@
+### 🔹 ChatController – Non-streaming POST endpoint
+# Sends a user prompt to the AI model and returns the full response in one shot.
 POST http://localhost:8080/api/chat
 Content-Type: application/json
 
 {
   "prompt": "What is Spring Boot?"
 }
+
+### 🔹 StreamController – Full response GET endpoint
+# Returns the complete AI response in one request (non-streaming).
+
+GET http://localhost:8080/api/stream/full?message=Give me 5 Spring Boot best practices
+Content-Type: application/json
+
+
+
+### 🔹 StreamController – Streaming SSE endpoint
+# Streams the AI response token-by-token (Server-Sent Events), ideal for real-time UI.
+GET http://localhost:8080/api/stream/sse?message=Stream 5 tips to improve Spring AI applications
+Accept: text/event-stream
