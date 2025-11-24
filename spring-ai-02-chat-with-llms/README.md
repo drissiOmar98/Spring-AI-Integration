@@ -3,6 +3,7 @@
 This project demonstrates how to integrate **Spring AI** with multiple **OpenAI-compatible Large Language Models (LLMs)** including Gemini, Groq, DeepSeek, OpenRouter, and Docker Model Runner.  
 It contains clean configuration examples, environment variable setups, and YAML-based profiles to switch between LLM providers easily & integration tests to verify AI chat functionality across providers.
 
+
 ---
 ## 🚀 Features
 
@@ -13,8 +14,23 @@ It contains clean configuration examples, environment variable setups, and YAML-
 - Run local models with **Docker Model Runner** (Smollm2, Llama, etc.)
 - Fully configured `application-*.yml` files
 - Modular structure for each provider
+- **StreamController** providing both full-response and streaming (SSE) endpoints for real-time or one-shot AI responses
 - **Integration tests** with MockMvc for ChatController across multiple profiles (Gemini, Groq, OpenRouter, DMR)
 
+---
+### 💬 StreamController – Streaming and Full Response Endpoints
+
+- **Full Response Endpoint (`/api/stream/full`)**  
+  Returns the complete AI-generated response in one request (non-streaming).  
+  Useful for traditional REST API usage where the entire output is needed at once.
+
+- **Streaming SSE Endpoint (`/api/stream/sse`)**  
+  Streams the AI response token-by-token, ideal for real-time UIs or live feedback applications.  
+  Allows clients to render partial outputs as they arrive, improving interactivity and responsiveness.
+
+- Works with the same **ChatClient** abstraction as `ChatController` and fully compatible with all configured LLM profiles (Gemini, Groq, DeepSeek, OpenRouter, DMR).
+
+- Supports query parameters to customize the prompt for both endpoints, making it flexible for dynamic use cases.
 
 
 ---
