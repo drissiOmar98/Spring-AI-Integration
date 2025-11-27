@@ -19,3 +19,18 @@ Content-Type: application/json
 # Streams the AI response token-by-token (Server-Sent Events), ideal for real-time UI.
 GET http://localhost:8080/api/stream/sse?message=Stream 5 tips to improve Spring AI applications
 Accept: text/event-stream
+
+
+### 🔹 AcmeBankController – Valid banking-related question
+# Sends a banking-related question to the AI assistant.
+# The AI responds only to banking queries as defined in system instructions.
+GET http://localhost:8080/acme/chat?message=What are your branch hours?
+Accept: application/json
+
+### 🔹 AcmeBankController – Off-topic question
+# Sends a question outside the allowed banking topics.
+# The AI responds with a safe fallback message.
+GET http://localhost:8080/acme/chat?message=Can you tell me a joke?
+Accept: application/json
+
+
