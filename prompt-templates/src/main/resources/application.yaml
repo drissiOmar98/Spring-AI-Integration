@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: prompt-templates
+  ai:
+    openai:
+      api-key: ${OPEN_AI_API_KEY}
+      chat:
+        options:
+          model: gpt-4o
+
+
+logging:
+  level:
+    org.springframework.ai.chat.client.advisor: DEBUG
