@@ -34,3 +34,10 @@ GET http://localhost:8080/acme/chat?message=Can you tell me a joke?
 Accept: application/json
 
 
+### 🔹 ArticleController – Blog Post Generator
+# Generates a complete 500-word, ready-to-publish blog post.
+# You can customize the topic using the `topic` query parameter.
+# Endpoint: GET /article/posts/new
+
+GET http://localhost:8080/article/posts/new?topic=The Future of Spring AI
+Accept: application/json
