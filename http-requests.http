@@ -41,3 +41,21 @@ Accept: application/json
 
 GET http://localhost:8080/article/posts/new?topic=The Future of Spring AI
 Accept: application/json
+
+### 🔹 VacationPlanController – Unstructured Vacation Plan
+# Sends a user prompt to the AI model to generate a vacation plan.
+# Returns a free-text recommendation without structured formatting.
+GET http://localhost:8080/vacation/unstructured
+Accept: application/json
+
+### 🔹 VacationPlanController – Structured Vacation Plan
+# Sends a user prompt to the AI model to generate a structured vacation plan.
+# Returns an `Itinerary` object containing a list of `Activity` records.
+# Each activity includes: activity name, location, day, and time.
+# Endpoint: GET /vacation/structured
+# Query Parameter:
+#   - destination (optional): The destination city. Default is "Cleveland, OH".
+
+GET http://localhost:8080/vacation/structured?destination=Montreal,CA
+Accept: application/json
+
