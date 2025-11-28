@@ -55,6 +55,33 @@ public class VacationPlanController {
     }
 
 
-
+    /**
+     * 🔹 Structured Vacation Plan Endpoint
+     * Endpoint: GET /vacation/structured
+     * <p>
+     * Sends a user prompt to the AI asking for a vacation plan for the specified destination and duration (3 days by default).
+     * The AI response is automatically mapped to an `Itinerary` object containing a list of `Activity` records.
+     * Each activity includes fields: activity name, location, day, and time.
+     * <p>
+     * Use Case:
+     * - Provides structured JSON suitable for front-end rendering, calendar integration, or further processing.
+     * <p>
+     * Query Parameter:
+     * - destination (optional): The destination city. Defaults to "Cleveland, OH".
+     *
+     * @param destination The target destination for the vacation plan
+     * @return An Itinerary object containing a structured list of activities
+     */
+    @GetMapping("/vacation/structured")
+    public Itinerary vacationStructured(@RequestParam(value = "destination", defaultValue = "Cleveland, OH") String destination) {
+        return chatClient.prompt()
+                .user(u -> {
+                    // Build a dynamic user prompt with the destination parameter
+                    u.text("What's a good vacation plan while I'm in {destination} for 3 days?");
+                    u.param("destination", destination);
+                })
+                .call()
+                .entity(Itinerary.class);
+    }
 
 }
