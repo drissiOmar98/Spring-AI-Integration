@@ -65,3 +65,10 @@ Accept: application/json
 
 GET http://localhost:8080/image-to-text
 Accept: application/json
+
+### 🔹 ImageGeneration – Generate Image from Prompt
+# Generates an image using the OpenAI DALL-E model based on a text prompt.
+# Query Parameter:
+#   - prompt (optional): Text description of the desired image. Default: "A beautiful sunset over mountains".
+GET http://localhost:8080/generate-image
+Accept: application/json
