@@ -1,0 +1,16 @@
+## Google Gemini OpenAI Compatible Mode ##
+spring:
+  ai:
+    openai:
+      base-url: "https://generativelanguage.googleapis.com"
+      chat:
+        completions-path: "/v1beta/openai/chat/completions"
+        options:
+          model: "gemini-2.0-flash"
+      api-key: ${GEMINI_API_KEY}
+
+    chat:
+      memory:
+        repository:
+          jdbc:
+            initialize-schema: always
