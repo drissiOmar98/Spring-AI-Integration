@@ -72,3 +72,14 @@ Accept: application/json
 #   - prompt (optional): Text description of the desired image. Default: "A beautiful sunset over mountains".
 GET http://localhost:8080/generate-image
 Accept: application/json
+
+
+
+### 🔹 RAG Models – Retrieve Model Information
+# Uses your VectorStore + ChatClient to answer the query.
+# Query Parameter:
+#   - message (optional): The question the user asks.
+#                         Default → "Give me a list of all the models from OpenAI along with their context window."
+
+GET http://localhost:8080/rag/models
+Accept: application/json
