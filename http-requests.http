@@ -89,4 +89,37 @@ GET http://localhost:8080/tools
 Accept: application/json
 
 
+### 🔹 Task Management – AI Tool Calling
+# Interact with the TaskManagementTools through natural-language prompts.
+# The AI will automatically detect:
+#   - Task creation
+#   - Status updates
+#   - Task reassignment
+# and then call the appropriate tool method.
+
+
+### ➤ 1. Create a New Task
+# "Create a task titled 'Fix login bug' with description 'Investigate and fix authentication issue' assigned to Omar."
+GET http://localhost:8080/tasks?message=Create a task titled 'Fix login bug' with description 'Investigate and fix authentication issue' assigned to Omar
+Accept: application/json
+
+### ➤ 2. Update Task Status
+# "Mark task 1 as COMPLETED."
+GET http://localhost:8080/tasks?message=Mark task 1 as COMPLETED
+Accept: application/json
+
+### ➤ 3. Reassign a Task
+# "Reassign task 1 to Leila."
+GET http://localhost:8080/tasks?message=Reassign task 1 to Leila
+Accept: application/json
+
+### ➤ 4. Natural Prompts (AI auto-detects)
+# "Change the status of task 2 to IN_PROGRESS."
+GET http://localhost:8080/tasks?message=Change the status of task 2 to IN_PROGRESS
+Accept: application/json
+
+### ➤ 5. Task Not Found Example
+# "Complete task 99."
+GET http://localhost:8080/tasks?message=Complete task 99
+Accept: application/json
 
