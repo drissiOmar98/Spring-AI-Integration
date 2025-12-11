@@ -73,8 +73,6 @@ Accept: application/json
 GET http://localhost:8080/generate-image
 Accept: application/json
 
-
-
 ### 🔹 RAG Models – Retrieve Model Information
 # Uses your VectorStore + ChatClient to answer the query.
 # Query Parameter:
@@ -83,3 +81,12 @@ Accept: application/json
 
 GET http://localhost:8080/rag/models
 Accept: application/json
+
+### 🔹 DateTime Tools – Get Tomorrow's Day
+# Sends a prompt to the AI to determine tomorrow's date.
+# The AI can dynamically call the DatTimeTools tool to get the current datetime.
+GET http://localhost:8080/tools
+Accept: application/json
+
+
+
