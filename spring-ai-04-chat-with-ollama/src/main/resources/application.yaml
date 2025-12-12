@@ -1,0 +1,3 @@
+spring:
+  application:
+    name: spring-ai-04-chat-with-ollama

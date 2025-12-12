@@ -1,0 +1,13 @@
+package com.omar.spring_ai_04_chat_with_ollama;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringAi04ChatWithOllamaApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringAi04ChatWithOllamaApplication.class, args);
+	}
+
+}
