@@ -123,3 +123,22 @@ Accept: application/json
 GET http://localhost:8080/tasks?message=Complete task 99
 Accept: application/json
 
+
+
+### 🔹 City Info – AI-Powered City Information with Weather Integration
+# Sends a natural language query to the AI to get city information.
+# The AI will automatically call the `currentWeatherFunction` if relevant.
+# Query Parameter:
+#   - message (required): The user's city-related question.
+# Example queries:
+#   - "Tell me about Paris"
+#   - "What's the weather like in New York?"
+
+GET http://localhost:8080/cities?message=Tell me about Paris
+Accept: application/json
+
+###
+GET http://localhost:8080/cities?message=What's the weather like in New York?
+Accept: application/json
+
+
