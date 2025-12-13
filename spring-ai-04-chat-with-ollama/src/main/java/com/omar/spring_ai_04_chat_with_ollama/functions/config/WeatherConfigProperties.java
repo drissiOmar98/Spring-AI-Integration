@@ -1,4 +1,4 @@
-package com.omar.spring_ai_04_chat_with_ollama.functions;
+package com.omar.spring_ai_04_chat_with_ollama.functions.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

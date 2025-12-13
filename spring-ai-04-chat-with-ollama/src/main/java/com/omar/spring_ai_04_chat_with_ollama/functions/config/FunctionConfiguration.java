@@ -1,5 +1,8 @@
-package com.omar.spring_ai_04_chat_with_ollama.functions;
+package com.omar.spring_ai_04_chat_with_ollama.functions.config;
 
+import com.omar.spring_ai_04_chat_with_ollama.functions.model.Request;
+import com.omar.spring_ai_04_chat_with_ollama.functions.model.Response;
+import com.omar.spring_ai_04_chat_with_ollama.functions.service.WeatherService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Description;
@@ -56,7 +59,7 @@ public class FunctionConfiguration {
      */
     @Bean
     @Description("Get the current weather conditions for the given city.")
-    public Function<WeatherService.Request, WeatherService.Response> currentWeatherFunction() {
+    public Function<Request, Response> currentWeatherFunction() {
         return new WeatherService(props);
     }
 

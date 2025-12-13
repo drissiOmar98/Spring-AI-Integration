@@ -1,6 +1,6 @@
 package com.omar.spring_ai_04_chat_with_ollama;
 
-import com.omar.spring_ai_04_chat_with_ollama.functions.WeatherConfigProperties;
+import com.omar.spring_ai_04_chat_with_ollama.functions.config.WeatherConfigProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
