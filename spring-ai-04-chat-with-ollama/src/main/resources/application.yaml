@@ -1,3 +1,23 @@
 spring:
   application:
-    name: spring-ai-04-chat-with-ollama
+    name: 03-chat-ollama
+
+  ai:
+    ollama:
+      base-url: http://localhost:11434
+      chat:
+        options:
+          model: llama3.2          # Ollama model you are using
+          temperature: 0.7
+
+  threads:
+    virtual:
+      enabled: true              # Enable Java 21 virtual threads for high-concurrency
+
+logging:
+  level:
+    org.springframework.ai.chat.client.advisor: DEBUG
+
+weather:
+  api-key: ${WEATHER_API_KEY}   # Externalized API key from environment variable
+  api-url: https://api.weatherapi.com/v1
