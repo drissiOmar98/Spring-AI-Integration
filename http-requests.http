@@ -142,3 +142,62 @@ GET http://localhost:8080/cities?message=What's the weather like in New York?
 Accept: application/json
 
 
+
+### 🔹 HR Chat – AI-Powered Employee & Leave Management (Drissi Company)
+# Sends a natural language HR query to the AI assistant.
+# The AI automatically calls the appropriate tools:
+#   - EmployeeTools.getEmployee
+#   - EmployeeTools.findEmployeesOnLeave
+#   - EmployeeTools.applyLeave
+#   - DateTimeTools (for date calculations)
+#
+# Endpoint:
+#   POST /api/hr/chat
+#
+# Request Body:
+#   - prompt (required): Natural language HR question or command
+#
+# Example queries:
+#   - "Get details of employee id emp1002"
+#   - "Who is on leave today?"
+#   - "Which employees are on leave on 2025-01-01?"
+#   - "Apply leave for employee emp1001 on 2025-04-01"
+
+POST http://localhost:8080/api/hr/chat
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "Get details of employee id emp1002 of Drissi company"
+}
+
+###
+
+POST http://localhost:8080/api/hr/chat
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "Which Drissi company employees are on leave today?"
+}
+
+###
+
+POST http://localhost:8080/api/hr/chat
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "Which Drissi company employees are on leave on 2025-01-01?"
+}
+
+###
+
+POST http://localhost:8080/api/hr/chat
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "Apply leave for Drissi company employee id emp1001 on 2025-04-01"
+}
+
