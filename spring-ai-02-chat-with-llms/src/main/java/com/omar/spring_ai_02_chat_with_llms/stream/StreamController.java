@@ -1,4 +1,4 @@
-package com.omar.spring_ai_02_chat_with_llms;
+package com.omar.spring_ai_02_chat_with_llms.stream;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.http.MediaType;
