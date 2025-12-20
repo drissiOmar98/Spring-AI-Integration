@@ -1,3 +1,11 @@
 spring:
   application:
     name: docker-model-runner
+
+  ai:
+    openai:
+      api-key: _
+      chat:
+        base-url: http://localhost:12434/engines/llama.cpp
+        options:
+          model: ai/gemma3
