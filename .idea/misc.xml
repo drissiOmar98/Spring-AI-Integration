@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/spring-with-ai/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-ai-02-chat-with-llms/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-ai-03-chat-with-claude/pom.xml" />
+        <option value="$PROJECT_DIR$/prompt-templates/pom.xml" />
+        <option value="$PROJECT_DIR$/structured-output/pom.xml" />
+        <option value="$PROJECT_DIR$/multimodality/pom.xml" />
+        <option value="$PROJECT_DIR$/chat-memory/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-ai-rag-vector-store/pom.xml" />
+        <option value="$PROJECT_DIR$/tool-calling/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-ai-04-chat-with-ollama/pom.xml" />
+        <option value="$PROJECT_DIR$/docker-model-runner/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-ai-financial-rag/pom.xml" />
+        <option value="$PROJECT_DIR$/native-structured-output/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_21" default="true" project-jdk-name="21" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>
