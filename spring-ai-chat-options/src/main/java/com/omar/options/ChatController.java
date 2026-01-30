@@ -82,5 +82,30 @@ public class ChatController {
                 .content();
     }
 
+    /**
+     * Factual Q&A example.
+     * <p>
+     * Demonstrates low temperature for deterministic answers and
+     * frequency penalty to reduce repetition.
+     *
+     * @return AI-generated factual response
+     */
+    @GetMapping("/facts")
+    public String factualExample() {
+        OpenAiChatOptions options = OpenAiChatOptions.builder()
+                .model("gpt-4o-mini")
+                .temperature(0.1)        // Low creativity, factual
+                .frequencyPenalty(0.0)   // No repetition penalty
+                .maxTokens(50)           // Short answer
+                .build();
+
+        return chatClient.prompt()
+                .user("What is the capital of France? Provide a factual answer.")
+                .options(options)
+                .call()
+                .content();
+    }
+
+
 
 }
