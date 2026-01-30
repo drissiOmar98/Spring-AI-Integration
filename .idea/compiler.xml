@@ -9,6 +9,7 @@
         <module name="structured-output" />
         <module name="spring-with-ai" />
         <module name="spring-ai-financial-rag" />
+        <module name="spring-ai-chat-options" />
         <module name="spring-ai-04-chat-with-ollama" />
         <module name="tool-calling" />
         <module name="multimodality" />
@@ -32,6 +33,7 @@
       <module name="spring-ai-02-chat-with-llms" options="-parameters" />
       <module name="spring-ai-03-chat-with-claude" options="-parameters" />
       <module name="spring-ai-04-chat-with-ollama" options="-parameters" />
+      <module name="spring-ai-chat-options" options="-parameters" />
       <module name="spring-ai-financial-rag" options="-parameters" />
       <module name="spring-ai-rag-vector-store" options="-parameters" />
       <module name="spring-with-ai" options="-parameters" />
