@@ -56,5 +56,31 @@ public class ChatController {
                 .chatResponse();
     }
 
+    /**
+     * Creative writing example.
+     * <p>
+     * Shows how to configure the chat client for storytelling:
+     * - High temperature for creativity
+     * - Presence penalty to encourage topic diversity
+     * - Max tokens limit to control response length
+     *
+     * @return a short AI-generated story
+     */
+    @GetMapping("/creative")
+    public String creativeWriting() {
+        OpenAiChatOptions options = OpenAiChatOptions.builder()
+                .model("gpt-4o-mini")
+                .temperature(1.0)         // High creativity
+                .presencePenalty(0.6)     // Encourage new ideas
+                .maxTokens(150)           // Limit output length
+                .build();
+
+        return chatClient.prompt()
+                .user("Write a short creative story about a robot")
+                .options(options)
+                .call()
+                .content();
+    }
+
 
 }
