@@ -1,4 +1,4 @@
-package dev.danvega.options;
+package com.omar.options;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
