@@ -1,10 +1,20 @@
-# Spring AI Chat Options Demo
+# 🚀 Spring AI Chat Options Demo
 
-A Spring Boot application demonstrating how to use various OpenAI chat options with Spring AI.
+A **Spring Boot 4** application showcasing how to leverage **OpenAI chat options** with **Spring AI** to control your LLM's behavior for any use case.
+
+Whether you're building creative storytelling features, precise factual Q&A, or automated code generation, this demo helps you explore **temperature, penalties, max tokens, stop sequences**, and more!
+
+✨ **What This Demo Covers:**
+- 🎨 **Creative Writing** – High temperature and presence penalty for storytelling
+- 📚 **Factual Q&A** – Low temperature for deterministic answers
+- 💻 **Code Generation** – Moderate temperature with stop sequences for structured code
+- ⚙️ **Configurable Chat Options** – Full control of model parameters per endpoint
+
+🎯 **Goal:** Learn how to configure Spring AI chat options to make your LLM responses **creative, precise, or deterministic**, depending on your application needs.
 
 ## Prerequisites
 
-- Java 24
+- Java 21+
 - Maven
 - OpenAI API key
 
