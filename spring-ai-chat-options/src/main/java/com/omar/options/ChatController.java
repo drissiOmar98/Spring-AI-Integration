@@ -106,6 +106,30 @@ public class ChatController {
                 .content();
     }
 
+    /**
+     * Code generation example.
+     * <p>
+     * Shows how to configure the chat client for coding tasks:
+     * - Moderate temperature for deterministic code
+     * - Stop sequences to delimit code blocks
+     * - Max tokens to prevent overly long outputs
+     *
+     * @return AI-generated Java code snippet
+     */
+    @GetMapping("/code")
+    public String codeGen() {
+        OpenAiChatOptions options = OpenAiChatOptions.builder()
+                .model("gpt-4o-mini")
+                .temperature(0.3)                 // Slight creativity for coding
+                .maxTokens(200)                   // Limit output
+                .stop(List.of("END_CODE", "\n\n---")) // Stop sequences to delimit code
+                .build();
 
+        return chatClient.prompt()
+                .user("Write a Java method to calculate factorial. Start with ```java and end with ```")
+                .options(options)
+                .call()
+                .content();
+    }
 
 }
