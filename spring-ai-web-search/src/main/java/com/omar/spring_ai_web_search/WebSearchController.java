@@ -54,5 +54,59 @@ public class WebSearchController {
     }
 
 
+    /**
+     * 🤖 GPT-5 Web Search Demo
+     * <p>
+     * Demonstrates how to use Spring AI's WebSearchOptions with a search-enabled GPT-5 model to retrieve
+     * up-to-date information from the web.
+     *
+     * <p>
+     * This endpoint sends a prompt to the AI model with web search enabled and returns a real-time response,
+     * avoiding outdated training data limitations.
+     * </p>
+     *
+     * <p>
+     * 🚀 Key Features:
+     * </p>
+     * <ul>
+     *   <li>✅ Enables live web search for the request</li>
+     *   <li>✅ Uses LOW search context for faster responses</li>
+     *   <li>✅ Demonstrates per-request AI configuration</li>
+     * </ul>
+     *
+     * <p>
+     * ⚙️ You can adjust {@link SearchContextSize} to:
+     * LOW / MEDIUM / HIGH depending on accuracy needs.
+     * </p>
+     *
+     * @return AI-generated response using real-time web data
+     */
+    @GetMapping("/gpt5")
+    public String gpt5() {
+
+        // 🌐 Configure web search behavior for this request
+        // LOW = smaller context, faster response
+        WebSearchOptions webSearchOptions = new WebSearchOptions(
+                SearchContextSize.LOW,
+                null // No location filter applied
+        );
+
+        // ⚙️ Build OpenAI chat options with web search enabled
+        OpenAiChatOptions options = OpenAiChatOptions.builder()
+                // Attach web search configuration
+                .webSearchOptions(webSearchOptions)
+                .build();
+
+        // 🚀 Send prompt to the AI model and retrieve response
+        return chatClient.prompt()
+
+                // 👤 User prompt requesting real-time information
+                .user("Tell me an interesting fact about GPT-5")
+                // Apply custom options for this request
+                .options(options)
+                .call()
+                .content();
+    }
+
 
 }
