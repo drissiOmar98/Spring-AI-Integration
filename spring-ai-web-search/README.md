@@ -81,3 +81,13 @@ Reference: [OpenAI Web Search Guide](https://platform.openai.com/docs/guides/too
     - Status & contact info
 
 ---
+
+## ⚙️ Configuration
+
+Spring profiles are used for different AI providers.
+
+### 🌟 OpenAI Config
+- Create an API Key: [OpenAI API Key](https://platform.openai.com/account/api-keys)
+- Set environment variable:
+  ```bash
+  export OPENAI_API_KEY=YOUR_TOKEN_VALUE_HERE
