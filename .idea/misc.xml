@@ -18,6 +18,7 @@
         <option value="$PROJECT_DIR$/spring-ai-financial-rag/pom.xml" />
         <option value="$PROJECT_DIR$/native-structured-output/pom.xml" />
         <option value="$PROJECT_DIR$/spring-ai-chat-options/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-ai-web-search/pom.xml" />
       </list>
     </option>
   </component>

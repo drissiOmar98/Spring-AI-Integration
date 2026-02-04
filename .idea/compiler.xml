@@ -18,6 +18,7 @@
         <module name="spring-ai-rag-vector-store" />
         <module name="spring-ai-03-chat-with-claude" />
         <module name="docker-model-runner" />
+        <module name="spring-ai-web-search" />
         <module name="native-structured-output" />
         <module name="spring-ai-02-chat-with-llms" />
       </profile>
@@ -36,6 +37,7 @@
       <module name="spring-ai-chat-options" options="-parameters" />
       <module name="spring-ai-financial-rag" options="-parameters" />
       <module name="spring-ai-rag-vector-store" options="-parameters" />
+      <module name="spring-ai-web-search" options="-parameters" />
       <module name="spring-with-ai" options="-parameters" />
       <module name="structured-output" options="-parameters" />
       <module name="tool-calling" options="-parameters" />
