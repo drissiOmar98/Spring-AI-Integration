@@ -10,6 +10,40 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * 🌐 WebSearchController
+ * <p>
+ * REST controller demonstrating real-time web search capabilities using Spring AI and OpenAI search-enabled models.
+ * <p>
+ * This controller provides multiple endpoints to showcase how to integrate Spring AI's ChatClient with web search:
+ * </p>
+ * <ul>
+ *   <li>🤖 <b>/gpt5</b> - Demonstrates a GPT-5 prompt with real-time web search</li>
+ *   <li>📰 <b>/news</b> - Curates recent Spring Framework news with structured summaries</li>
+ *   <li>🍽️ <b>/restaurants</b> - Recommends exactly 3 restaurants based on cuisine, price, and location</li>
+ * </ul>
+ *
+ * <p>
+ * 🚀 Key Features:
+ * </p>
+ *
+ * <ul>
+ *   <li>✅ Uses Spring AI ChatClient to communicate with OpenAI models</li>
+ *   <li>✅ WebSearchOptions allow for context size tuning and user location awareness</li>
+ *   <li>✅ Custom system and user prompts enable structured, reliable responses</li>
+ *   <li>✅ Supports real-time data retrieval to avoid "As of my last update..." limitations</li>
+ *   <li>✅ Demonstrates location-based queries for personalized results</li>
+ * </ul>
+ * <p>
+ * 📖 Usage:
+ * </p>
+ *
+ * <ul>
+ *   <li>Call <b>/gpt5</b> to get interesting GPT-5 facts with live web search</li>
+ *   <li>Call <b>/news</b> to get curated Spring ecosystem news summaries</li>
+ *   <li>Call <b>/restaurants</b> to get location-aware restaurant recommendations</li>
+ * </ul>
+ */
 @RestController
 public class WebSearchController {
 

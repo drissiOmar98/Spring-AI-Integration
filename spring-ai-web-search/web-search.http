@@ -1,0 +1,36 @@
+### 🟢 GPT-5 Web Search Example
+# Endpoint: /gpt5
+# Purpose: Sends a prompt to the GPT-5 model with web search enabled
+#          Retrieves a real-time, AI-generated interesting fact about GPT-5.
+# Usage: Simply send a GET request. No parameters are needed.
+# Response: Plain text content returned by the AI model.
+GET http://localhost:8080/gpt5
+Accept: application/json
+
+
+### 🟢 Spring Ecosystem News Aggregator
+# Endpoint: /news
+# Purpose: Retrieves curated, up-to-date news from the Spring ecosystem.
+#          Collects information from official blogs, GitHub releases,
+#          security updates, and major Spring announcements.
+# Usage: Send a GET request. This endpoint automatically checks
+#        the past 7 days and expands to the last month if needed.
+# Response: Plain text summary with date, source, impact level,
+#           brief summary, and developer action items.
+GET http://localhost:8080/news
+Accept: application/json
+
+
+### 🟢 Restaurant Finder (Default Parameters)
+# Endpoint: /restaurants
+# Purpose: Provides exactly 3 restaurant recommendations near default location
+#          (Cleveland, Ohio, US) using real-time web search.
+#          Uses default cuisine: any, price range: $, timezone: America/New_York.
+# Usage: Send a GET request. Optional query parameters exist if customization is needed
+# Response: Plain text with exactly 3 restaurants, including:
+#           - Restaurant Name & Neighborhood
+#           - Specialty
+#           - Price & Rating
+#           - Status & Contact info
+GET http://localhost:8080/restaurants
+Accept: application/json
