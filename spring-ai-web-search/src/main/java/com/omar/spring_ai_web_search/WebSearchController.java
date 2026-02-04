@@ -109,4 +109,103 @@ public class WebSearchController {
     }
 
 
+    /**
+     * 📰 Spring Ecosystem News Aggregator
+     * <p>
+     * Retrieves the latest Spring Framework ecosystem news using real-time web search and AI-powered analysis.
+     * <p>
+     * This endpoint queries authoritative sources and generates a structured, developer-friendly summary
+     * including impact level and action items.
+     * </p>
+     * <p>
+     * 🚀 Features:
+     * </p>
+     * <ul>
+     *   <li>✅ Uses live web search for up-to-date information</li>
+     *   <li>✅ Filters trusted Spring sources</li>
+     *   <li>✅ Produces scannable technical summaries</li>
+     *   <li>✅ Helps developers stay informed efficiently</li>
+     * </ul>
+     *
+     * <p>
+     * ⚙️ Search Scope:
+     * </p>
+     * <p>
+     * Defaults to the past 7 days and automatically expands to the last month when recent data is limited.
+     * </p>
+     *
+     * @return Curated summary of recent Spring ecosystem news
+     */
+    @GetMapping("/news")
+    public String currentNews() {
+
+        // 🌐 Configure web search settings for this request
+        // LOW context = faster response with focused results
+        WebSearchOptions webSearchOptions = new WebSearchOptions(
+                WebSearchOptions.SearchContextSize.LOW,
+                null // No geographic filtering applied
+        );
+
+        // ⚙️ Build OpenAI options with web search enabled
+        OpenAiChatOptions options = OpenAiChatOptions.builder()
+                .webSearchOptions(webSearchOptions)
+                .build();
+
+        // 🧠 System prompt: defines the AI's role and behavior
+        String systemPrompt = """
+            You are a Spring Framework expert and technical news analyst. Your role is to:
+            
+            1. Search for and identify the most recent and significant developments in the Spring ecosystem
+            2. Focus on official announcements, major releases, security updates, and breaking changes
+            3. Prioritize information from authoritative sources like:
+               - Official Spring blog (spring.io/blog)
+               - GitHub releases and changelogs
+               - Spring team announcements
+               - Major tech publications covering Spring
+            
+            4. Structure your response with:
+               - **Date and Source** for each news item
+               - **Impact Level** (Critical/Major/Minor)
+               - **Brief Summary** in 2-3 sentences
+               - **Action Items** for developers if applicable
+            
+            5. Filter out generic Java news unless directly Spring-related
+            6. If no significant Spring news is found in the last week, expand to the last month
+            7. Always verify information currency - ignore outdated articles
+            
+            Present the information in a clear, scannable format that busy developers can quickly digest.
+            """;
+
+        // 👤 User prompt: defines the specific search request
+        String userPrompt = """
+            Search for the latest Spring Framework ecosystem news from the past 7 days, including:
+            
+            - Spring Boot releases and updates
+            - Spring Security announcements  
+            - Spring Cloud developments
+            - New Spring projects or major updates
+            - Breaking changes or deprecations
+            - Security vulnerabilities and patches
+            - Spring Tools and IDE integration updates
+            - Performance improvements or new features
+            - Community events or important blog posts
+            
+            Focus on news that would impact Spring developers in their daily work.
+            If limited recent news, include significant developments from the past month.
+            """;
+
+        // 🚀 Send prompt to AI model and retrieve analyzed news summary
+        return chatClient.prompt()
+                // Apply system-level instructions
+                .system(systemPrompt)
+                // Apply user search request
+                .user(userPrompt)
+                // Enable web search options
+                .options(options)
+                .call()
+                .content();
+    }
+
+
+
 }
