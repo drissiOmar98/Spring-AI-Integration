@@ -1,0 +1,14 @@
+### 🟢 Regular Chat Memory Example
+# Sends a user message to the regular chat memory controller
+GET http://localhost:8080/memory?message=Hello AI
+Accept: application/json
+
+### 🟢 Test Different Queries
+# Experiment with different prompts
+GET http://localhost:8080/memory?message=Give me a quick tip on Spring AI
+Accept: application/json
+
+### 🟢 Another Example
+# Try a follow-up message
+GET http://localhost:8080/memory?message=Can you summarize our conversation so far?
+Accept: application/json
