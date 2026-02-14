@@ -1,4 +1,4 @@
-package com.omar.compacting_chat_memory_advisor;
+package com.omar.compacting_chat_memory_advisor.controller;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
