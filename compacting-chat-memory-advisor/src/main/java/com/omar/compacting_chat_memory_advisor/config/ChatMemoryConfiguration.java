@@ -59,5 +59,26 @@ public class ChatMemoryConfiguration {
         return googleGenAiChatModel;
     }
 
-
+    /**
+     * Custom compacting advisor that automatically summarizes old messages
+     * when the conversation history approaches the limit.
+     *
+     * Uses Google Gemini 2.5 Flash for cost-effective summarization while
+     * the main chat responses use OpenAI GPT-5.
+     *
+     * Configuration is externalized to application.properties under the prefix "compact.memory".
+     */
+    @Bean
+    public CompactingChatMemoryAdvisor compactingChatMemoryAdvisor(
+            ChatMemory compactingChatMemory,
+            @Qualifier("geminiChatModel") ChatModel geminiChatModel,
+            CompactingMemoryProperties properties) {
+        return new CompactingChatMemoryAdvisor(
+                compactingChatMemory,
+                geminiChatModel,  // Use Gemini for cost-effective summarization
+                properties.maxMessages(),
+                properties.compactThreshold(),
+                properties.messagesToCompact()
+        );
+    }
 }
