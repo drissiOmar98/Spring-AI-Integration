@@ -27,5 +27,16 @@ public class ChatMemoryConfiguration {
                 .build();
     }
 
+    /**
+     * Separate chat memory instance for the compacting advisor.
+     * This keeps the two conversation histories independent for comparison.
+     */
+    @Bean
+    public ChatMemory compactingChatMemory() {
+        return MessageWindowChatMemory.builder()
+                .maxMessages(20)
+                .build();
+    }
+
 
 }
