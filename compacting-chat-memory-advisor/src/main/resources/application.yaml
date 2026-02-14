@@ -19,3 +19,18 @@ spring:
           options:
             model: gemini-2.5-flash
 
+
+# 🧠 Compacting Chat Memory Configuration
+compact:
+  memory:
+    # Maximum number of messages to keep before memory is considered full
+    max-messages: 20
+
+    # Trigger automatic compaction when conversation reaches this many messages
+    # Recommended: 70-80% of max-messages to allow buffer before hitting limit
+    compact-threshold: 15
+
+    # Number of oldest messages to summarize when compacting
+    # Recommended: 40-50% of compact-threshold to balance context retention and token savings
+    # These messages will be replaced with a single summary message
+    messages-to-compact: 8
