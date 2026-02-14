@@ -38,5 +38,15 @@ public class ChatMemoryConfiguration {
                 .build();
     }
 
+    /**
+     * Primary chat model (OpenAI GPT-5) for user-facing chat responses.
+     * Marked as @Primary to resolve ambiguity when multiple ChatModel beans exist.
+     */
+    @Bean
+    @Primary
+    public ChatModel primaryChatModel(OpenAiChatModel openAiChatModel) {
+        return openAiChatModel;
+    }
+
 
 }
