@@ -12,3 +12,28 @@ Accept: application/json
 # Try a follow-up message
 GET http://localhost:8080/memory?message=Can you summarize our conversation so far?
 Accept: application/json
+
+
+### 🟢 Compacting Chat Memory - Basic Chat
+# Sends a user message to the compacting chat memory controller.
+# Automatic compaction will occur when message count reaches the configured threshold.
+GET http://localhost:8080/compact/memory?message=Hello AI
+Accept: application/json
+
+### 🟢 Compacting Chat Memory - Follow-up Message
+# Adds a follow-up message to the conversation.
+# Observe how context is preserved while old messages are summarized once threshold is reached.
+GET http://localhost:8080/compact/memory?message=Continue the previous discussion with context preserved
+Accept: application/json
+
+### 🟢 Compacting Chat Memory - Manual Compaction
+# Trigger compaction manually to summarize oldest messages regardless of threshold.
+# Returns details about the compaction (messages and tokens before/after).
+GET http://localhost:8080/compact/trigger
+Accept: application/json
+
+### 🟢 Compacting Chat Memory - Clear Memory
+# Completely clears the conversation history for a fresh start.
+# Useful for testing or starting a new session.
+GET http://localhost:8080/compact/clear
+Accept: application/json
