@@ -2,6 +2,7 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/chat-memory/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/compacting-chat-memory-advisor/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/docker-model-runner/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/multimodality/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/native-structured- output/src/main/java" charset="UTF-8" />

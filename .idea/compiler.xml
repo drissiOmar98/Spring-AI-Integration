@@ -14,6 +14,7 @@
         <module name="tool-calling" />
         <module name="multimodality" />
         <module name="prompt-templates" />
+        <module name="compacting-chat-memory-advisor" />
         <module name="chat-memory" />
         <module name="spring-ai-rag-vector-store" />
         <module name="spring-ai-03-chat-with-claude" />
@@ -28,6 +29,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="chat-memory" options="-parameters" />
+      <module name="compacting-chat-memory-advisor" options="-parameters" />
       <module name="docker-model-runner" options="-parameters" />
       <module name="multimodality" options="-parameters" />
       <module name="native-structured-output" options="-parameters" />
