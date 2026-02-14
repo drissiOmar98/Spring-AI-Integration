@@ -1,3 +1,21 @@
 spring:
   application:
     name: compacting-chat-memory-advisor
+
+  ai:
+    # Primary chat model (OpenAI GPT-5)
+    openai:
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: gpt-5
+          temperature: 1.0
+
+    # Summarization model (Google Gemini 2.5 Flash - cheaper/faster)
+    google:
+      genai:
+        api-key: ${GOOGLE_GENAI_API_KEY}
+        chat:
+          options:
+            model: gemini-2.5-flash
+
