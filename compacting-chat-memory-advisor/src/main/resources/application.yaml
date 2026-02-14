@@ -34,3 +34,9 @@ compact:
     # Recommended: 40-50% of compact-threshold to balance context retention and token savings
     # These messages will be replaced with a single summary message
     messages-to-compact: 8
+
+
+# 🐞 Debug logging for memory compaction behavior
+logging:
+  level:
+    com.omar.compacting_chat_memory_advisor.advisor.CompactingChatMemoryAdvisor: DEBUG
