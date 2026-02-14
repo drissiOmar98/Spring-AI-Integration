@@ -48,5 +48,16 @@ public class ChatMemoryConfiguration {
         return openAiChatModel;
     }
 
+    /**
+     * Google Gemini ChatModel bean for use in summarization.
+     * This demonstrates using a cheaper/faster model for summaries while keeping
+     * the primary model (OpenAI) for chat responses.
+     */
+    @Bean
+    @Qualifier("geminiChatModel")
+    public ChatModel geminiChatModel(GoogleGenAiChatModel googleGenAiChatModel) {
+        return googleGenAiChatModel;
+    }
+
 
 }
