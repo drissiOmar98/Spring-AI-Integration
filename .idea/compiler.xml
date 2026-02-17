@@ -11,6 +11,7 @@
         <module name="spring-ai-financial-rag" />
         <module name="spring-ai-chat-options" />
         <module name="spring-ai-04-chat-with-ollama" />
+        <module name="spring-ai-metrics" />
         <module name="tool-calling" />
         <module name="multimodality" />
         <module name="prompt-templates" />
@@ -39,6 +40,7 @@
       <module name="spring-ai-04-chat-with-ollama" options="-parameters" />
       <module name="spring-ai-chat-options" options="-parameters" />
       <module name="spring-ai-financial-rag" options="-parameters" />
+      <module name="spring-ai-metrics" options="-parameters" />
       <module name="spring-ai-prompt-caching" options="-parameters" />
       <module name="spring-ai-rag-vector-store" options="-parameters" />
       <module name="spring-ai-web-search" options="-parameters" />
