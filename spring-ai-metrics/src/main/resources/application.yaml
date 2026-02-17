@@ -1,3 +1,43 @@
 spring:
   application:
     name: spring-ai-metrics
+
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}  # 🔐 OpenAI API key (externalized via environment variable)
+      chat:
+        options:
+          model: gpt-4o           # 🤖 Chat model used for AI requests
+
+
+# Actuator Configuration - Keep it simple with just what's needed
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus,health,info
+        # 🌐 Expose only essential Actuator endpoints:
+        # - prometheus: metrics scraping endpoint
+        # - health: application health checks
+        # - info: basic app metadata
+
+  prometheus:
+    metrics:
+      export:
+        enabled: true            # 📡 Enable Prometheus metrics export
+        step: 5s                 # ⏱️ Metrics collection interval (scrape-friendly resolution)
+
+  # Metrics Configuration - Essential settings for good data collection
+  metrics:
+    enable:
+      all: true                  # ✅ Enable all Micrometer metrics
+    distribution:
+      percentiles-histogram:
+        all: true                # 📈 Generate histograms for latency & token metrics
+
+
+  # Micrometer Tracing for exemplars
+  tracing:
+    enabled: true                # 🧵 Enable Micrometer tracing (for exemplars in Grafana)
+    sampling:
+      probability: 1.0           # 🎯 Sample 100% of traces (ideal for demos/dev)
