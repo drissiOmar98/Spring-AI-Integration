@@ -1,1 +1,27 @@
-services: {}
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: prometheus
+    volumes:
+      - ./docker/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+
+  grafana:
+    image: grafana/grafana:latest
+    container_name: grafana
+    ports:
+      - "3000:3000"
+    volumes:
+      - grafana-storage:/var/lib/grafana
+      - ./docker/grafana/provisioning:/etc/grafana/provisioning
+      - ./docker/grafana/dashboards:/etc/grafana/dashboards
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+      - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/dashboards/ai-metrics-dashboard.json
+    depends_on:
+      - prometheus
+
+volumes:
+  grafana-storage:
