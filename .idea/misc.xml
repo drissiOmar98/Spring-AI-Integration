@@ -22,6 +22,7 @@
         <option value="$PROJECT_DIR$/spring-ai-prompt-caching/pom.xml" />
         <option value="$PROJECT_DIR$/compacting-chat-memory-advisor/pom.xml" />
         <option value="$PROJECT_DIR$/spring-ai-metrics/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-io-mcp-server/pom.xml" />
       </list>
     </option>
   </component>
