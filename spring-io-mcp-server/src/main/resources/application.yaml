@@ -1,3 +1,18 @@
 spring:
   application:
-    name: spring-io-mcp-server
+    name: spring-io-mcp
+
+  main:
+    web-application-type: none     # 🚫 No web server (CLI / STDIO-based MCP server)
+    banner-mode: off               # 🔕 Disable Spring banner for clean STDIO output
+
+  ai:
+    mcp:
+      server:
+        stdio: true                # 🔌 Enable STDIO transport for MCP
+        name: spring-io-sessions-mcp  # 🧠 MCP server identifier
+        version: 0.0.1             # 🏷️ MCP server version
+
+logging:
+  level:
+    root: OFF                      # 🔕 Disable logging to avoid polluting STDIO
