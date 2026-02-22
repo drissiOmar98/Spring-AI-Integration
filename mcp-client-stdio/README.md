@@ -52,7 +52,7 @@ Web UI (Browser) --AJAX--> REST Controller --ChatClient--> MCP Server
 ```text
 mcp-client-stdio/
 │
-├── src/main/java/com/sivalabs/mcpclient/
+├── src/main/java/com/omar/mcpclient/
 │   ├── VideoController.java        # REST endpoint for AI Q&A
 │   ├── MarkdownHelper.java         # Converts Markdown to HTML
 │   └── Application.java            # Spring Boot entry point
