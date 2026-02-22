@@ -1,7 +1,12 @@
 package com.omar.mcp_server_stdio;
 
+import org.springframework.ai.support.ToolCallbacks;
+import org.springframework.ai.tool.ToolCallback;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import java.util.List;
 
 @SpringBootApplication
 public class McpServerStdioApplication {
@@ -9,5 +14,11 @@ public class McpServerStdioApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(McpServerStdioApplication.class, args);
 	}
+
+	@Bean
+	public List<ToolCallback> toolCallbacks(VideoTools videoTools) {
+		return List.of(ToolCallbacks.from(videoTools));
+	}
+
 
 }
