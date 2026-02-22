@@ -1,3 +1,40 @@
+# ---------------------------------------------------------
+# Application Identity
+# ---------------------------------------------------------
 spring:
   application:
     name: mcp-client-stdio
+
+  # -------------------------------------------------------
+  # Ollama LLM Configuration
+  # -------------------------------------------------------
+  ai:
+    ollama:
+      # Base URL of the local Ollama model server
+      base-url: http://localhost:11434
+
+      chat:
+        # Model options: gpt-oss:20b, qwen3:8b, deepseek-coder-v2:latest
+        options:
+          model: gpt-oss:20b
+          temperature: 0.7
+
+    # -------------------------------------------------------
+    # MCP Client STDIO Configuration
+    # -------------------------------------------------------
+    mcp:
+      client:
+        # Path to servers configuration (can list multiple MCP STDIO servers)
+        stdio:
+          servers-configuration: classpath:mcp-servers.json
+
+# ---------------------------------------------------------
+# Logging Configuration
+# ---------------------------------------------------------
+logging:
+  level:
+    # Debug logs for custom SivaLabs packages
+    com.sivalabs: debug
+
+    # Debug logs for Spring AI chat client advisor
+    org.springframework.ai.chat.client.advisor: DEBUG
