@@ -1,3 +1,57 @@
+# ---------------------------------------------------------
+# Application identity
+# Used for logging, metrics, and Spring context naming
+# ---------------------------------------------------------
 spring:
   application:
     name: mcp-server-stdio
+
+  # -------------------------------------------------------
+  # Application type & startup behavior
+  # MCP servers run over STDIO, not HTTP
+  # -------------------------------------------------------
+  main:
+    # Disable embedded web server (Tomcat/Netty)
+    web-application-type: none
+
+    # Disable Spring banner to keep STDOUT clean
+    banner-mode: off
+
+  # -------------------------------------------------------
+  # Spring AI MCP Server configuration
+  # -------------------------------------------------------
+  ai:
+    mcp:
+      server:
+        # MCP server identifier exposed to MCP clients
+        name: mcp-server-stdio
+
+        # MCP server version (use semantic versioning)
+        version: 0.0.1
+
+        # Enable STDIO transport (stdin/stdout communication)
+        stdio: true
+
+  # -------------------------------------------------------
+  # JPA / Hibernate configuration
+  # -------------------------------------------------------
+  jpa:
+    hibernate:
+      # Validate schema against entities
+      # Prevents accidental schema creation or updates
+      ddl-auto: validate
+
+# ---------------------------------------------------------
+# Logging configuration
+# IMPORTANT:
+# - STDOUT must remain CLEAN for MCP protocol messages
+# - Any console logging will break STDIO communication
+# ---------------------------------------------------------
+logging:
+  pattern:
+    # Disable console log output entirely
+    console: ""
+
+  # Uncomment to enable file-based logging instead of console
+  # file:
+  #   name: logs/mcp-server.log
