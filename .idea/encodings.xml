@@ -6,6 +6,7 @@
     <file url="file://$PROJECT_DIR$/docker-model-runner/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mcp-client-stdio/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/mcp-server-stdio/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/mcp-server-webflux/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/multimodality/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/native-structured- output/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/native-structured-output/src/main/java" charset="UTF-8" />

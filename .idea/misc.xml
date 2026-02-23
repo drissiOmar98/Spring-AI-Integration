@@ -25,6 +25,7 @@
         <option value="$PROJECT_DIR$/spring-io-mcp-server/pom.xml" />
         <option value="$PROJECT_DIR$/mcp-server-stdio/pom.xml" />
         <option value="$PROJECT_DIR$/mcp-client-stdio/pom.xml" />
+        <option value="$PROJECT_DIR$/mcp-server-webflux/pom.xml" />
       </list>
     </option>
   </component>

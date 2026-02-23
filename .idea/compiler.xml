@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="structured-output" />
+        <module name="mcp-server-webflux" />
         <module name="spring-with-ai" />
         <module name="spring-ai-financial-rag" />
         <module name="spring-ai-chat-options" />
@@ -37,6 +38,7 @@
       <module name="docker-model-runner" options="-parameters" />
       <module name="mcp-client-stdio" options="-parameters" />
       <module name="mcp-server-stdio" options="-parameters" />
+      <module name="mcp-server-webflux" options="-parameters" />
       <module name="multimodality" options="-parameters" />
       <module name="native-structured-output" options="-parameters" />
       <module name="prompt-templates" options="-parameters" />
