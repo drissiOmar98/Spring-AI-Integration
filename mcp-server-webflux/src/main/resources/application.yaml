@@ -1,3 +1,30 @@
 spring:
   application:
+    # Application name used for logging, monitoring, and identification
     name: mcp-server-webflux
+
+  ai:
+    mcp:
+      server:
+        # Logical name of the MCP server (exposed to MCP clients)
+        name: mcp-server-webflux
+
+        # MCP server version (useful for compatibility and client metadata)
+        version: 0.0.1
+
+  jpa:
+    hibernate:
+      # Validate schema against entities on startup
+      # - Ensures DB schema matches JPA mappings
+      # - Fails fast if schema is out of sync
+      ddl-auto: validate
+
+server:
+  # HTTP port where the MCP WebFlux server listens
+  port: 8181
+
+# Optional file-based logging (disabled by default)
+# Enable this when running in containers or production
+# logging:
+#   file:
+#     name: mcp-server-webflux.log
