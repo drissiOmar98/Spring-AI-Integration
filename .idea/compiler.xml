@@ -11,6 +11,7 @@
         <module name="spring-with-ai" />
         <module name="spring-ai-financial-rag" />
         <module name="spring-ai-chat-options" />
+        <module name="mcp-client-webflux" />
         <module name="spring-ai-04-chat-with-ollama" />
         <module name="mcp-client-stdio" />
         <module name="spring-ai-metrics" />
@@ -21,6 +22,7 @@
         <module name="mcp-server-stdio" />
         <module name="chat-memory" />
         <module name="spring-ai-rag-vector-store" />
+        <module name="spring-ai-mcp-client" />
         <module name="spring-ai-03-chat-with-claude" />
         <module name="docker-model-runner" />
         <module name="spring-ai-web-search" />
@@ -37,6 +39,7 @@
       <module name="compacting-chat-memory-advisor" options="-parameters" />
       <module name="docker-model-runner" options="-parameters" />
       <module name="mcp-client-stdio" options="-parameters" />
+      <module name="mcp-client-webflux" options="-parameters" />
       <module name="mcp-server-stdio" options="-parameters" />
       <module name="mcp-server-webflux" options="-parameters" />
       <module name="multimodality" options="-parameters" />
@@ -47,6 +50,7 @@
       <module name="spring-ai-04-chat-with-ollama" options="-parameters" />
       <module name="spring-ai-chat-options" options="-parameters" />
       <module name="spring-ai-financial-rag" options="-parameters" />
+      <module name="spring-ai-mcp-client" options="-parameters" />
       <module name="spring-ai-metrics" options="-parameters" />
       <module name="spring-ai-prompt-caching" options="-parameters" />
       <module name="spring-ai-rag-vector-store" options="-parameters" />
