@@ -1,0 +1,49 @@
+### -----------------------------------------------------------
+### Spring AI MCP Client - API Test Requests
+### -----------------------------------------------------------
+### This file contains HTTP requests for testing the AI chat
+### endpoint exposed by the Spring Boot MCP client application.
+###
+### The endpoint sends prompts to the LLM via Spring AI and
+### allows the model to automatically invoke tools exposed
+### by the DVaaS MCP server when needed.
+### -----------------------------------------------------------
+
+
+### Health Check
+### -----------------------------------------------------------
+### Verify that the Spring Boot application is running.
+### Expected response: 404 or valid endpoint response depending
+### on the available mappings.
+GET http://localhost:8080
+
+
+### Basic Chat Request
+### -----------------------------------------------------------
+### Sends a prompt to the AI chat endpoint.
+### The LLM may call MCP tools from the DVaaS server
+### to retrieve up-to-date information about Dan Vega.
+###
+### Endpoint implemented in ChatController.
+GET http://localhost:8080/chat
+
+
+### Example Dynamic Chat Request (if using @RequestParam)
+### -----------------------------------------------------------
+### If the controller is updated to accept a dynamic message
+### parameter, you can send custom prompts like this.
+###
+### Example:
+### GET /chat?message=What are Dan Vega's latest YouTube videos
+GET http://localhost:8080/chat?message=What are Dan Vega's latest YouTube videos
+
+
+### AI + MCP Tool Invocation Demo
+### -----------------------------------------------------------
+### This request demonstrates how the LLM can automatically
+### call MCP tools exposed by the DVaaS server to enrich
+### its response with real-time or external data.
+###
+### The tool invocation happens transparently through
+### Spring AI's ToolCallbackProvider integration.
+GET http://localhost:8080/chat?message=Show me Dan Vega's newest content
