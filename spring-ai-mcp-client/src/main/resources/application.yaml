@@ -1,3 +1,34 @@
 spring:
   application:
-    name: spring-ai-mcp-client
+    # Name of the Spring Boot application
+    # Used for logging, monitoring, and service identification
+    name: dvaas-client
+
+  ai:
+    openai:
+      # OpenAI API key loaded from environment variable
+      # Never commit API keys directly in source code
+      api-key: ${OPENAI_API_KEY}
+
+    mcp:
+      client:
+        # Name of the MCP client instance
+        # Helps identify the client when communicating with MCP servers
+        name: dvaas-mcp-client
+
+        # Version of the MCP client
+        # Useful for tracking compatibility and upgrades
+        version: 0.0.1
+
+        toolcallback:
+          # Enables automatic tool invocation when the LLM
+          # decides to call an MCP tool
+          enabled: true
+
+        streamable-http:
+          # Configuration for MCP servers using Streamable HTTP transport
+          connections:
+            dvaas:
+              # MCP server endpoint providing "Dan Vega as a Service"
+              # This server exposes tools and context that augment the LLM
+              url: https://mcp.danvega.dev/mcp
