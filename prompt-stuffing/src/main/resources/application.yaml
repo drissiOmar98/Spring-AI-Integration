@@ -1,3 +1,10 @@
 spring:
   application:
     name: prompt-stuffing
+
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}  # 🔐 OpenAI API key (externalized via environment variable)
+      chat:
+        options:
+          model: gpt-4o           # 🤖 Chat model used for AI requests
