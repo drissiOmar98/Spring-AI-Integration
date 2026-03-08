@@ -6,29 +6,30 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="structured-output" />
         <module name="mcp-server-webflux" />
         <module name="spring-with-ai" />
         <module name="spring-ai-financial-rag" />
+        <module name="spring-ai-04-chat-with-ollama" />
+        <module name="prompt-templates" />
+        <module name="docker-model-runner" />
+        <module name="spring-ai-web-search" />
+        <module name="native-structured-output" />
+        <module name="spring-io-mcp-server" />
+        <module name="structured-output" />
         <module name="spring-ai-chat-options" />
         <module name="mcp-client-webflux" />
-        <module name="spring-ai-04-chat-with-ollama" />
         <module name="mcp-client-stdio" />
         <module name="spring-ai-metrics" />
         <module name="tool-calling" />
         <module name="multimodality" />
-        <module name="prompt-templates" />
         <module name="compacting-chat-memory-advisor" />
         <module name="mcp-server-stdio" />
         <module name="chat-memory" />
         <module name="spring-ai-rag-vector-store" />
         <module name="spring-ai-mcp-client" />
         <module name="spring-ai-03-chat-with-claude" />
-        <module name="docker-model-runner" />
-        <module name="spring-ai-web-search" />
-        <module name="native-structured-output" />
+        <module name="prompt-stuffing" />
         <module name="spring-ai-prompt-caching" />
-        <module name="spring-io-mcp-server" />
         <module name="spring-ai-02-chat-with-llms" />
       </profile>
     </annotationProcessing>
@@ -44,6 +45,7 @@
       <module name="mcp-server-webflux" options="-parameters" />
       <module name="multimodality" options="-parameters" />
       <module name="native-structured-output" options="-parameters" />
+      <module name="prompt-stuffing" options="-parameters" />
       <module name="prompt-templates" options="-parameters" />
       <module name="spring-ai-02-chat-with-llms" options="-parameters" />
       <module name="spring-ai-03-chat-with-claude" options="-parameters" />
