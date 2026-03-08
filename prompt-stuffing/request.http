@@ -1,0 +1,74 @@
+### ------------------------------------------------------------
+### Spring AI Prompt Stuffing Demo - Olympics Controller
+###
+### This file demonstrates how to interact with the
+### /olympics/2024 endpoint using different scenarios.
+###
+### The endpoint uses Spring AI's ChatClient to send prompts
+### to an LLM (OpenAI GPT model) and optionally injects
+### additional context using the "Prompt Stuffing" technique.
+### ------------------------------------------------------------
+
+@baseUrl = http://localhost:8080
+
+### ------------------------------------------------------------
+### 1️⃣ Default Request
+###
+### Calls the endpoint without parameters.
+###
+### The controller will use the default question:
+### "What sports are being included in the 2024 Summer Olympics?"
+###
+### Prompt Stuffing is DISABLED here, meaning:
+### - No additional context document is injected
+### - The LLM answers based only on its training knowledge
+### ------------------------------------------------------------
+
+GET {{baseUrl}}/olympics/2024
+
+###
+
+### ------------------------------------------------------------
+### 2️⃣ Custom Question (No Prompt Stuffing)
+###
+### Ask a custom question about Olympic sports.
+###
+### Prompt Stuffing is still disabled, so the model will
+### rely only on its internal knowledge.
+### ------------------------------------------------------------
+
+GET {{baseUrl}}/olympics/2024?message=What new sports were added to the 2024 Olympics?
+
+###
+
+### ------------------------------------------------------------
+### 3️⃣ Enable Prompt Stuffing
+###
+### Setting "stuffit=true" enables the Prompt Stuffing technique.
+###
+### This means:
+### - The file docs/olympic-sports.txt will be loaded
+### - Its content will be injected into the prompt
+### - The LLM will use that context to answer
+###
+### This demonstrates the "Bring Your Own Data" pattern.
+### ------------------------------------------------------------
+
+GET {{baseUrl}}/olympics/2024?stuffit=true
+
+###
+
+### ------------------------------------------------------------
+### 4️⃣ Custom Question WITH Prompt Stuffing
+###
+### Here we combine:
+### - a custom question
+### - prompt stuffing enabled
+###
+### The context document will be injected into the prompt
+### template before sending the request to the LLM.
+### ------------------------------------------------------------
+
+GET {{baseUrl}}/olympics/2024?message=List the sports in the 2024 Olympics&stuffit=true
+
+###
