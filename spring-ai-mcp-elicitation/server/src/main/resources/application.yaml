@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: coffee-shop
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+    mcp:
+      server:
+        name: coffee-order-server
+        version: 1.0.0
+        type: SYNC
+        protocol: streamable # sse, stateless or streamable
+server:
+  port: 8081
