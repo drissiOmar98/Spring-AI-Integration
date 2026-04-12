@@ -29,6 +29,7 @@
         <option value="$PROJECT_DIR$/mcp-client-webflux/pom.xml" />
         <option value="$PROJECT_DIR$/spring-ai-mcp-client/pom.xml" />
         <option value="$PROJECT_DIR$/prompt-stuffing/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-ai-mcp-elicitation/pom.xml" />
       </list>
     </option>
   </component>

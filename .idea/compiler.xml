@@ -9,12 +9,14 @@
         <module name="mcp-server-webflux" />
         <module name="spring-with-ai" />
         <module name="spring-ai-financial-rag" />
+        <module name="server" />
         <module name="spring-ai-04-chat-with-ollama" />
         <module name="prompt-templates" />
         <module name="docker-model-runner" />
         <module name="spring-ai-web-search" />
         <module name="native-structured-output" />
         <module name="spring-io-mcp-server" />
+        <module name="client" />
         <module name="structured-output" />
         <module name="spring-ai-chat-options" />
         <module name="mcp-client-webflux" />
@@ -37,6 +39,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="chat-memory" options="-parameters" />
+      <module name="client" options="-parameters" />
       <module name="compacting-chat-memory-advisor" options="-parameters" />
       <module name="docker-model-runner" options="-parameters" />
       <module name="mcp-client-stdio" options="-parameters" />
@@ -47,6 +50,7 @@
       <module name="native-structured-output" options="-parameters" />
       <module name="prompt-stuffing" options="-parameters" />
       <module name="prompt-templates" options="-parameters" />
+      <module name="server" options="-parameters" />
       <module name="spring-ai-02-chat-with-llms" options="-parameters" />
       <module name="spring-ai-03-chat-with-claude" options="-parameters" />
       <module name="spring-ai-04-chat-with-ollama" options="-parameters" />
