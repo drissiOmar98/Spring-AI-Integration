@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: coffee-shop-client
+  ai:
+    openai:
+      api-key: ${OPENAI_API_KEY}
+    mcp:
+      client:
+        name: coffee-shop-client
+        version: 0.0.1
+        request-timeout: 120s
+        toolcallback:
+          enabled: true
+        capabilities:
+          elicitation:
+            form: {}
+        streamable-http:
+          connections:
+            coffeeshop:
+              url: http://localhost:8081/mcp
