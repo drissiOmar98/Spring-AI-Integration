@@ -30,6 +30,7 @@
         <option value="$PROJECT_DIR$/spring-ai-mcp-client/pom.xml" />
         <option value="$PROJECT_DIR$/prompt-stuffing/pom.xml" />
         <option value="$PROJECT_DIR$/spring-ai-mcp-elicitation/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-ai-mcp-security/pom.xml" />
       </list>
     </option>
   </component>
