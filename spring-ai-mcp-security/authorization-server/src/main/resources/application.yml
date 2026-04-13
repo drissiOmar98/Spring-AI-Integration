@@ -1,0 +1,101 @@
+spring:
+  application:
+    name: authorization-server
+
+  # =========================================================
+  # 🔐 OAuth2 / GitHub Federated Authentication Configuration
+  # =========================================================
+  security:
+    oauth2:
+
+      # -------------------------
+      # 🌐 GitHub OAuth2 Login
+      # -------------------------
+      client:
+        registration:
+          github:
+            client-id: ${GITHUB_CLIENT_ID}
+            client-secret: ${GITHUB_CLIENT_SECRET}
+
+            # Scopes required from GitHub
+            scope:
+              - read:user
+              - user:email
+
+        provider:
+          github:
+            # Use GitHub login as username identifier
+            user-name-attribute: login
+
+      # =========================================================
+      # 🛡️ Spring Authorization Server Configuration
+      # =========================================================
+      authorizationserver:
+        client:
+
+          # -----------------------------------------------------
+          # 🤖 MCP Server OAuth2 Client Registration
+          # -----------------------------------------------------
+          mcp-server:
+            registration:
+
+              # Client credentials (used by MCP server)
+              client-id: "mcp-server"
+              client-secret: "{noop}secret"  # DEV ONLY: plain text secret
+
+              # Supported authentication methods
+              client-authentication-methods:
+                - "client_secret_basic"
+                - "client_secret_post"
+
+              # OAuth2 grant types enabled
+              authorization-grant-types:
+                - "authorization_code"
+                - "refresh_token"
+
+              # Redirect URIs used after login/authorization
+              redirect-uris:
+                - "http://localhost:8080/authorized"
+                - "http://localhost:8080/login/oauth2/code/mcp"
+
+              # Scopes granted to MCP server
+              scopes:
+                - "openid"
+                - "profile"
+                - "email"
+                - "mcp.server"
+                - "mcp.tools"
+
+            # Disable PKCE for simplicity (NOT recommended for production)
+            require-proof-key: false
+
+            # =====================================================
+            # ⏱️ Token Lifetime Configuration
+            # =====================================================
+            token:
+              authorization-code-time-to-live: PT5M   # 5 minutes
+              access-token-time-to-live: PT15M        # 15 minutes
+              refresh-token-time-to-live: P1D         # 1 day
+
+# =========================================================
+# 🚀 Server Configuration
+# =========================================================
+server:
+  port: ${PORT:9000}
+
+  servlet:
+    session:
+      cookie:
+        # Custom session cookie name for isolation
+        name: MCP_AUTHORIZATION_SERVER_SESSIONID
+
+# =========================================================
+# 📊 Logging Configuration (Debug Security Flows)
+# =========================================================
+logging:
+  level:
+    root: INFO
+
+    # Enable debug logs for security & OAuth2 flows
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
