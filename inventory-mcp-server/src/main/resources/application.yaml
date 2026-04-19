@@ -1,3 +1,65 @@
+# ==============================
+# 🚀 Application Configuration
+# ==============================
 spring:
   application:
-    name: inventory-mcp-server
+    name: product-mcp-server  # 📦 Application name
+
+  main:
+    web-application-type: none  # ⚙️ Run as non-web (CLI / MCP stdio)
+    banner-mode: off            # 🚫 Disable Spring banner
+    log-startup-info: false     # 🔕 Disable startup logs
+
+  # ==============================
+  # 🤖 MCP Server Configuration
+  # ==============================
+  ai:
+    mcp:
+      server:
+        enabled: true
+        name: product-inventory-mcp-server   # 🧠 MCP server identifier
+        version: 1.0.0                       # 🏷️ Versioning
+        type: SYNC                           # ⚡ Synchronous execution
+        stdio: true                          # 🔌 Communicate via STDIO
+        instructions: >                      # 📘 Server description for LLM
+          This MCP server provides tools for managing
+          a product inventory database.
+        capabilities:
+          tool: true        # 🛠️ Enable tool execution
+          resource: false   # 📂 No resource handling
+          prompt: false     # 💬 No prompt templates
+          completion: false # ✨ No text completion
+
+  # ==============================
+  # 🗄️ Database (H2 In-Memory)
+  # ==============================
+  datasource:
+    url: jdbc:h2:mem:productdb        # 🧪 In-memory database
+    driver-class-name: org.h2.Driver  # 🚗 H2 driver
+    username: omar                     # 👤 Default user
+    password: ""                      # 🔑 No password (dev only)
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop   # 🔄 Recreate schema on startup/shutdown
+    show-sql: false           # 🚫 Disable SQL logs
+    properties:
+      hibernate:
+        format_sql: false     # 🚫 Disable SQL formatting
+
+# ==============================
+# 🔕 Logging Configuration (Fully Disabled)
+# ==============================
+logging:
+  level:
+    root: OFF                 # 🔇 Disable all logs
+    org.springframework: OFF
+    org.hibernate: OFF
+    com.leetjourney: OFF
+
+  file:
+    name: ""                  # 🚫 No log file
+    path: ""
+
+  pattern:
+    console: ""               # 🚫 No console output
