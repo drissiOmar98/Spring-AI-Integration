@@ -148,5 +148,57 @@ public class ProductService {
                 saved.getCategory(), saved.getPrice(), saved.getStock());
     }
 
+    /**
+     * Updates an existing product in the inventory.
+     *
+     * @param id product ID
+     * @param name updated name
+     * @param category updated category
+     * @param price updated price
+     * @param stock updated stock quantity
+     * @return success or error message depending on update result
+     */
+    @McpTool(description = "Updates an existing product's information in the inventory. " +
+            "Requires the product ID and new values for name, category, price, and stock. " +
+            "All fields are required even if only updating one field.")
+    public String updateProduct(Long id, String name, String category, double price, int stock) {
+
+        return productRepository.findById(id)
+                .map(product -> {
+                    product.setName(name);
+                    product.setCategory(category);
+                    product.setPrice(price);
+                    product.setStock(stock);
+                    Product updated = productRepository.save(product);
+
+                    return String.format("Product updated successfully!\n" +
+                                    "ID: %d\n" +
+                                    "Name: %s\n" +
+                                    "Category: %s\n" +
+                                    "Price: $%.2f\n" +
+                                    "Stock: %d units",
+                            updated.getId(), updated.getName(), updated.getCategory(),
+                            updated.getPrice(), updated.getStock());
+                })
+                .orElse(String.format("Error: Product with ID %d not found.", id));
+    }
+
+    /**
+     * Deletes a product from the inventory by its ID.
+     *
+     * @param id product ID to delete
+     * @return confirmation message or error if product not found
+     */
+    @McpTool(description = "Deletes a product from the inventory by its ID. " +
+            "Returns confirmation of deletion or error if product not found.")
+    public String deleteProduct(Long id) {
+        return productRepository.findById(id)
+                .map(product -> {
+                    productRepository.delete(product);
+                    return String.format("Product '%s' (ID: %d) deleted successfully.",
+                            product.getName(), product.getId());
+                })
+                .orElse(String.format("Error: Product with ID %d not found.", id));
+    }
 
 }
