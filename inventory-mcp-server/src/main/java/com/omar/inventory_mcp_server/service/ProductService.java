@@ -108,6 +108,45 @@ public class ProductService {
         return result.toString();
     }
 
+    /**
+     * Adds a new product to the inventory database.
+     *
+     * @param name product name
+     * @param category product category
+     * @param price product price
+     * @param stock available stock quantity
+     * @return confirmation message with created product details
+     */
+    @McpTool(description = "Adds a new product to the inventory database. " +
+            "Requires: name (product name), category (product category), price (decimal price), " +
+            "and stock (integer quantity). Returns confirmation with the created product details.")
+    public String addProduct(String name, String category, double price, int stock) {
+        // Validation
+        if (name == null || name.trim().isEmpty()) {
+            return "Error: Product name cannot be empty.";
+        }
+        if (category == null || category.trim().isEmpty()) {
+            return "Error: Product category cannot be empty.";
+        }
+        if (price < 0) {
+            return "Error: Product price cannot be negative.";
+        }
+        if (stock < 0) {
+            return "Error: Product stock cannot be negative.";
+        }
+
+        Product product = new Product(name, category, price, stock);
+        Product saved = productRepository.save(product);
+
+        return String.format("Product added successfully!\n" +
+                        "ID: %d\n" +
+                        "Name: %s\n" +
+                        "Category: %s\n" +
+                        "Price: $%.2f\n" +
+                        "Stock: %d units",
+                saved.getId(), saved.getName(),
+                saved.getCategory(), saved.getPrice(), saved.getStock());
+    }
 
 
 }
