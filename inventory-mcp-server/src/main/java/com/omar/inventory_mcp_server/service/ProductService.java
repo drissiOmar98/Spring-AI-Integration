@@ -81,5 +81,33 @@ public class ProductService {
         return result.toString();
     }
 
+    /**
+     * Finds all products with a price lower than the specified maximum price.
+     *
+     * @param maxPrice upper price limit
+     * @return formatted list of products under the given price
+     */
+    @McpTool(description = "Finds all products priced below a specified maximum price. " +
+            "Useful for finding budget-friendly options or products within a price range. " +
+            "Price should be specified as a decimal number (e.g., 50.00).")
+    public String findProductsUnderPrice(double maxPrice) {
+        List<Product> products = productRepository.findByPriceLessThan(maxPrice);
+
+        if (products.isEmpty()) {
+            return String.format("No products found under $%.2f.", maxPrice);
+        }
+
+        StringBuilder result = new StringBuilder();
+        result.append(String.format("Found %d products under $%.2f:\n\n", products.size(), maxPrice));
+
+        for (Product product : products) {
+            result.append(String.format("- %s - $%.2f (%s) - Stock: %d\n",
+                    product.getName(), product.getPrice(), product.getCategory(), product.getStock()));
+        }
+
+        return result.toString();
+    }
+
+
 
 }
