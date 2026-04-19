@@ -52,6 +52,34 @@ public class ProductService {
         return result.toString();
     }
 
+    /**
+     * Searches for products by category name.
+     *
+     * @param category the product category to search for
+     * @return formatted list of matching products or empty message if none found
+     */
+    @McpTool(description = "Searches for products by category name. " +
+            "Returns all products that match the specified category (case-sensitive). " +
+            "Common categories include: Electronics, Books, Clothing, Appliances.")
+    public String searchByCategory(String category) {
+        List<Product> products = productRepository.findByCategory(category);
+
+        if (products.isEmpty()) {
+            return String.format("No products found in category '%s'.", category);
+        }
+
+        StringBuilder result = new StringBuilder();
+        result.append(String.format("Found %d products in category '%s':\n\n",
+                products.size(), category));
+
+        for (Product product : products) {
+            result.append(String.format("- %s (ID: %d) - $%.2f - Stock: %d\n",
+                    product.getName(), product.getId(), product.getPrice(),
+                    product.getStock()));
+        }
+
+        return result.toString();
+    }
 
 
 }
